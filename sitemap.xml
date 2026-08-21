@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://virtelon-website.vercel.app/</loc>
+    <loc>https://virtelon.com/</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/solutions</loc>
+    <loc>https://virtelon.com/solutions</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/industries</loc>
+    <loc>https://virtelon.com/industries</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/products</loc>
+    <loc>https://virtelon.com/products</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/work</loc>
+    <loc>https://virtelon.com/work</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/company</loc>
+    <loc>https://virtelon.com/company</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/start</loc>
+    <loc>https://virtelon.com/start</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/tools.html</loc>
+    <loc>https://virtelon.com/tools.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/whatsapp-tool.html</loc>
+    <loc>https://virtelon.com/whatsapp-tool.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://virtelon-website.vercel.app/roi-calculator.html</loc>
+    <loc>https://virtelon.com/roi-calculator.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

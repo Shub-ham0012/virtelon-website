@@ -1,0 +1,36 @@
+# Virtelon — Hostinger (Apache/LiteSpeed) config.
+# Replaces vercel.json's rewrites now that the site is served from Hostinger
+# shared/Business hosting instead of Vercel. Upload this file into public_html
+# alongside index.html (it's a hidden file — enable "show hidden files" in
+# hPanel File Manager, or upload via FTP/SFTP where it will show normally).
+
+RewriteEngine On
+
+# Force HTTPS (Hostinger issues a free SSL certificate for the domain —
+# make sure it's active in hPanel > SSL before relying on this rule).
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force the non-www host as canonical: https://virtelon.com
+# (Change this to add the "www." version instead if that's the domain you
+# actually want as canonical — just swap which host redirects to which.)
+RewriteCond %{HTTP_HOST} ^www\.virtelon\.com$ [NC]
+RewriteRule ^(.*)$ https://virtelon.com/$1 [L,R=301]
+
+# Clean SPA routes -> index.html, internal rewrite (URL bar keeps the clean
+# path; index.html's own JS router then renders the right page). Mirrors the
+# rewrites that used to live in vercel.json.
+RewriteRule ^(solutions|industries|work|products|company|start)/?$ /index.html [L]
+
+# Static assets: long cache, since filenames don't change on redeploy here.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Don't let visitors browse folder contents (e.g. /team/).
+Options -Indexes

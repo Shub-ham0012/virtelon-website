@@ -1241,6 +1241,13 @@ document.querySelectorAll('.chipset').forEach(set=>{
   const single=set.dataset.single==='1';
   set.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(single)set.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.toggle('on');});
 });
+/* Contact form delivery: Web3Forms (free tier, client-side only — required
+   because production hosting is Hostinger shared hosting, which has no
+   Node.js runtime for the old /api/contact serverless function).
+   Get your own free access key at https://web3forms.com (enter
+   info.virtelon@gmail.com, verify it, copy the key) and paste it below.
+   This key is designed to be public/client-side — it is not a password. */
+const WEB3FORMS_ACCESS_KEY='YOUR_WEB3FORMS_ACCESS_KEY';
 const enqForm=document.getElementById('enq');
 const enqRenderedAt=Date.now();
 if(enqForm){
@@ -1255,20 +1262,32 @@ if(enqForm){
     const projectTypes=[...enqForm.querySelectorAll('.chipset')[0].querySelectorAll('button.on')].map(b=>b.textContent);
     const budget=enqForm.querySelectorAll('.chipset')[1]?.querySelector('button.on')?.textContent||'';
     const timeline=enqForm.querySelectorAll('.chipset')[2]?.querySelector('button.on')?.textContent||'';
+    const showThanks=()=>{
+      enqForm.style.display='none';
+      document.getElementById('thanks').classList.add('show');
+      scrollTo({top:se.getBoundingClientRect().top+scrollY-300,behavior:'smooth'});
+    };
+    /* honeypot + minimum-fill-time trap: silently fake success, send nothing */
+    if(els.hp.value||(Date.now()-enqRenderedAt)<2500){showThanks();return;}
     const payload={
+      access_key:WEB3FORMS_ACCESS_KEY,
+      subject:'New enquiry from virtelon.com — '+els.name.value,
+      from_name:'Virtelon Website',
+      replyto:els.email.value,
       name:els.name.value,company:els.company.value,email:els.email.value,phone:els.phone.value,
-      industry:els.industry.value,projectTypes,message:els.message.value,budget,timeline,
-      existingSite:els.existingSite.value,hp:els.hp.value,ts:enqRenderedAt,
+      industry:els.industry.value,project_types:projectTypes.join(', ')||'—',message:els.message.value,
+      budget:budget||'—',timeline:timeline||'—',existing_site:els.existingSite.value||'—',
       source:'Start a Project form (arrived via: '+prevPage+')'
     };
     sending=true;se.disabled=true;const prevLabel=seLabel.textContent;seLabel.textContent='Sending…';
     try{
-      const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-      const data=await r.json().catch(()=>({ok:false,error:'Unexpected response. Please try WhatsApp or email instead.'}));
-      if(!r.ok||!data.ok){throw new Error(data.error||'Something went wrong. Please try WhatsApp or email instead.');}
-      enqForm.style.display='none';
-      document.getElementById('thanks').classList.add('show');
-      scrollTo({top:se.getBoundingClientRect().top+scrollY-300,behavior:'smooth'});
+      if(!WEB3FORMS_ACCESS_KEY||WEB3FORMS_ACCESS_KEY==='YOUR_WEB3FORMS_ACCESS_KEY'){
+        throw new Error('Form is not connected yet — please WhatsApp or email us instead.');
+      }
+      const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)});
+      const data=await r.json().catch(()=>({success:false,message:'Unexpected response. Please try WhatsApp or email instead.'}));
+      if(!r.ok||!data.success){throw new Error(data.message||'Something went wrong. Please try WhatsApp or email instead.');}
+      showThanks();
     }catch(err){
       errEl.textContent=err.message||'Something went wrong. Please try WhatsApp or email instead.';
       errEl.style.display='block';

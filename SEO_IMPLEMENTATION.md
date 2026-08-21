@@ -5,6 +5,33 @@
 
 ---
 
+## ADDENDUM (21 Aug 2026) — Production hosting is Hostinger, not Vercel: contact-form architecture changed
+
+Task 1 below was originally built assuming the live site would be served from Vercel (Node.js Serverless Functions). It was then confirmed that **production hosting is actually Hostinger shared/Business hosting (cPanel/hPanel, Apache/LiteSpeed + PHP — no Node.js runtime)**. `api/contact.js` (Nodemailer) cannot run there, so it does **not** work in production as originally written. This addendum documents the fix; §1.1–1.5 below are kept for reference but are now historical/superseded for the "how email actually gets sent" question.
+
+**What changed:**
+- The enquiry form (`#enq` in `index.html`) now submits directly to **[Web3Forms](https://web3forms.com)** — a free-tier (250 submissions/month), client-side-only form-delivery service. No backend code, no Node runtime required, which makes it the only realistic free option on PHP-only shared hosting. Chosen over a PHP+PHPMailer script because it needs zero server-side code to maintain and has no SMTP-credential-in-a-file exposure risk.
+- **Manual step required (cannot be done on your behalf — this session is not permitted to create third-party accounts for you):** go to web3forms.com, enter `info.virtelon@gmail.com`, and verify it via the confirmation email Web3Forms sends. You'll get a free public "Access Key." Open `index.html`, find the line `const WEB3FORMS_ACCESS_KEY='YOUR_WEB3FORMS_ACCESS_KEY';` (inside the `<script>` block near the enquiry-form logic), and replace the placeholder with your real key. This key is designed to be public/client-side (it is not a password or SMTP credential) — Web3Forms' anti-abuse happens on their server, keyed to your verified destination email and domain.
+- Until that key is pasted in, the form shows a clean "Form is not connected yet — please WhatsApp or email us instead" error rather than failing silently or crashing.
+- The honeypot and minimum-fill-time bot defenses that used to run server-side in `api/contact.js` now run client-side in `index.html` (a bot-filled hidden field, or a submission faster than 2.5s after page load, gets a faked "thank you" with nothing actually sent) — this is the best available defense without a backend, and Web3Forms adds its own server-side spam filtering on top.
+- **`api/contact.js`, `package.json`, `package-lock.json`, and `vercel.json` are left in the repo but are now inactive/unused** on Hostinger hosting — kept only as a documented reference in case Virtelon migrates to a Node-capable host later. **Do not upload these to Hostinger's `public_html`** — they serve no purpose there (see the Hostinger deployment steps below).
+- **New file: `.htaccess`** (repo root) — replaces `vercel.json`'s clean-URL rewrites with the Apache/LiteSpeed equivalent for Hostinger, plus HTTPS-forcing and non-www canonicalization.
+- **Domain corrected:** `robots.txt`, `sitemap.xml`, and the static `<link rel="canonical">`/OG/Twitter/JSON-LD tags in `tools.html`, `whatsapp-tool.html`, and `roi-calculator.html` were all pointing at the placeholder `https://virtelon-website.vercel.app` (a Vercel preview domain, never the real site) — all updated to `https://virtelon.com`, inferred from the site's own footer contact address and CIN filing. **If `virtelon.com` is not in fact the domain being pointed at Hostinger, this needs a follow-up correction** before it's fully accurate — the dynamic canonical/OG tags inside `index.html` itself don't have this problem, since they already compute the URL from `location.origin` at runtime.
+
+### How to actually update the live Hostinger site
+
+1. **Log into hPanel** → Files → File Manager (or use FTP/SFTP — hPanel → Files → FTP Accounts has the host/username, and you set/reset the password there).
+2. Navigate to `public_html` (the web root for the primary domain — if `virtelon.com` is an addon domain on a multi-site hosting plan, it may instead be `public_html/virtelon.com`, check hPanel → Domains).
+3. **Back up first:** select everything currently in that folder and download a copy, or zip it, before deleting anything — this is your rollback.
+4. Delete the old site's files from `public_html` (or move them into a folder like `_old-site-backup/` outside `public_html` if you'd rather not delete).
+5. Upload every file from this repo **except** `api/`, `package.json`, `package-lock.json`, and `vercel.json`: `index.html`, `tools.html`, `whatsapp-tool.html`, `roi-calculator.html`, `.htaccess` (hidden — toggle "show hidden files" in File Manager, or use FTP where it's visible normally), `logo.png`, `robots.txt`, `sitemap.xml`, and the `team/` folder (`shubham.jpg`, `sanskar.jpg`, `vijayant.jpg`).
+6. Confirm SSL is active: hPanel → SSL → make sure it shows "Installed" for the domain (Hostinger issues a free one automatically for most plans; if it's not active yet, activate it before relying on the `.htaccess` HTTPS-redirect rule, or visitors could get a redirect loop).
+7. Visit `https://virtelon.com/`, then click through Solutions/Industries/Work/Products/Company/Start a Project to confirm the clean URLs load correctly (this is exactly what `.htaccess` is for) and don't 404.
+8. Submit a test enquiry through the Start a Project form once the Web3Forms key is in place, and confirm it lands in `info.virtelon@gmail.com`.
+9. In Google Search Console (§2.12), re-submit `sitemap.xml` under the `virtelon.com` property if it wasn't already verified there.
+
+---
+
 ## 0. What the site actually is (context for everything below)
 
 Four static HTML files, no build step, no framework (Vercel project framework = "Other"):
