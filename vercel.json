@@ -1,0 +1,18 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/solutions", "destination": "/index.html" },
+    { "source": "/industries", "destination": "/index.html" },
+    { "source": "/work", "destination": "/index.html" },
+    { "source": "/products", "destination": "/index.html" },
+    { "source": "/company", "destination": "/index.html" },
+    { "source": "/start", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/logo.png",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

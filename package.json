@@ -1,0 +1,12 @@
+{
+  "name": "virtelon-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Virtelon Private Limited — marketing website (static HTML/CSS/JS) + serverless contact-form API.",
+  "scripts": {
+    "dev": "echo \"Static site — open index.html, or run: npx vercel dev\""
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.15"
+  }
+}
