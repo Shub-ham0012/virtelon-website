@@ -58,7 +58,7 @@ export function createHandler({ fetcher = fetch, env = process.env } = {}) {
           name: data.name.trim(), email: data.email.trim(), replyto: data.email.trim(),
           company: (data.company || '').trim(), enquiry_type: data.interest,
           message: data.message.trim(), consent: 'Permission to respond to this enquiry',
-          source: 'Virtelon dark production website', botcheck: ''
+          source: 'Virtelon dark production website', botcheck: false
         })
       });
       const result = await response.json();

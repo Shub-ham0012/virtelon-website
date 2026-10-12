@@ -1,6 +1,6 @@
 # Virtelon dark production candidate
 
-Six-page company site based on the approved dark V8 direction. This folder is independent of the repository's original website. The original root files and existing production project are not modified.
+Six-page company site based on the approved dark V8 direction. This folder is independent of the repository's original website. The original root files, project settings and production deployment remain intact. The existing Git integration can automatically build previews when a branch is pushed; no preview is promoted to that project's production aliases.
 
 ## Stack and editing
 
