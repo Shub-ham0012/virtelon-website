@@ -1,0 +1,51 @@
+/* Secondary pages inherit V8 tokens and typography. */
+:root {--heading-font:var(--display);--rule:var(--line)}
+.page-intro {padding-top:88px;padding-bottom:35px}
+.page-intro h1 {font-family:var(--heading-font);font-size:clamp(42px,5.8vw,84px);font-weight:800;line-height:1.04;letter-spacing:-.055em;max-width:1000px;margin:22px 0 28px}
+.page-intro h1 span {color:var(--accent)}
+.page-lead {font-size:19px;line-height:1.65;max-width:700px;color:var(--muted)}
+.page-actions {display:flex;align-items:center;gap:26px;flex-wrap:wrap;padding-bottom:38px}
+.content-section {padding-top:20px}
+.detail-row {display:grid;grid-template-columns:40px 1fr 1.4fr;gap:40px;border-top:1px solid var(--rule);padding:40px 0}
+.detail-row h3 {font-family:var(--heading-font);font-size:28px;line-height:1.2;letter-spacing:-.03em;margin:0 0 14px}
+.detail-row p {color:var(--muted);font-size:16px;line-height:1.75;margin:0 0 20px}
+.detail-list {padding-left:20px;color:var(--text);line-height:1.7;font-size:16px}
+.detail-list li {margin:10px 0;padding-left:6px}
+.product-list {display:grid;grid-template-columns:1fr 1.2fr;gap:54px;border-top:1px solid var(--rule);align-items:center}
+.product-list h2 {font-size:clamp(32px,4vw,54px)}
+.product-list p {color:var(--muted);line-height:1.7}
+.product-list figure {margin:0;min-width:0}
+.product-list img {display:block;width:100%;height:auto;border:1px solid var(--rule)}
+.product-list figcaption {margin-top:14px;font-size:12px;color:var(--muted)}
+.product-list .button {margin-top:24px}
+.contact-layout {display:grid;grid-template-columns:1fr 1.65fr;gap:70px;padding-top:30px}
+.contact-layout aside p {color:var(--muted);line-height:1.75;max-width:300px}
+.contact-address {display:inline-block;font-size:clamp(18px,2vw,24px);overflow-wrap:anywhere;min-height:44px}
+.form-grid {display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.form-config-note {padding:14px 16px;border-left:2px solid var(--accent);background:var(--surface);margin-bottom:26px}
+label {display:block;font-size:14px;color:var(--text);margin-bottom:10px}
+label span:not(.consent-label span) {color:var(--muted);font-size:12px}
+input,select,textarea {width:100%;border:1px solid #495263;background:#14181e;color:#f2f0e9;border-radius:0;padding:13px 14px;font:inherit;font-size:16px;min-height:48px}
+textarea {resize:vertical;min-height:170px}
+input:focus-visible,select:focus-visible,textarea:focus-visible {outline:2px solid var(--accent);outline-offset:3px;border-color:var(--accent)}
+.form-field {margin-top:25px}
+.small-note {font-size:13px!important;color:var(--muted);line-height:1.6}
+.consent-label {display:flex;align-items:flex-start;gap:12px;font-size:13px;line-height:1.6;margin:24px 0}
+.consent-label input {width:20px;height:20px;min-height:20px;flex-shrink:0;margin-top:2px;accent-color:#6e8cff}
+.consent-label a,.privacy a {text-decoration:underline;text-underline-offset:4px}
+.bot-field {position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+#form-status {font-size:15px;line-height:1.7;max-width:580px;min-height:26px;color:var(--text)}
+#form-status[data-state="error"] {color:#ffa9a9}
+#form-status[data-state="success"] {color:#a9c2ff}
+button:disabled {opacity:.6;cursor:wait}
+.privacy {border-top:1px solid var(--rule)}
+.privacy h2 {font-size:clamp(30px,4vw,50px)}
+.privacy-copy {max-width:740px;color:var(--muted);font-size:15px;line-height:1.8}
+.footer {flex-wrap:wrap}
+.footer nav {display:flex;flex-wrap:wrap;gap:22px;width:100%;border-top:1px solid var(--rule);padding-top:18px}
+.footer nav a {min-height:44px;display:flex;align-items:center}
+.footer>a[href="#top"] {text-decoration:none;min-height:44px;display:flex;align-items:center;gap:12px}
+#site-nav a[aria-current] {color:var(--text);text-decoration:underline;text-underline-offset:7px}
+@media(max-width:900px){.detail-row{gap:25px;grid-template-columns:30px 1fr 1.2fr}.contact-layout{gap:35px;grid-template-columns:1fr 1.5fr}.product-list{gap:30px}}
+@media(max-width:650px){.page-intro{padding-top:55px}.page-lead{font-size:16px}.detail-row{grid-template-columns:25px 1fr;gap:16px;padding:30px 0}.detail-row>div:last-child{grid-column:2}.detail-row h3{font-size:25px}.detail-row p,.detail-list{font-size:15px}.product-list,.contact-layout{grid-template-columns:1fr;gap:30px}.form-grid{grid-template-columns:1fr;gap:22px}.page-actions{gap:20px}.contact-layout aside p{max-width:none}.privacy-copy{font-size:14px}}
+@media(max-width:650px){.footer{grid-template-columns:minmax(0,1fr) auto}.footer>a[href="#top"]{grid-column:2;grid-row:1;font-size:11px}.footer nav{grid-column:1/-1;grid-row:4;gap:8px 22px}.footer nav a{font-size:12px}.footer>p{font-size:11px}.footer .copyright{font-size:11px}}
