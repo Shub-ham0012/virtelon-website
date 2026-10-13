@@ -24,50 +24,6 @@ document.addEventListener('keydown', event => {
 const mobileHeader = matchMedia('(max-width: 650px)');
 mobileHeader.addEventListener('change', () => closeMenu());
 
-const briefs = {
-  systems: {
-    number: '01', title: 'Make the handoffs work.',
-    context: 'An enquiry arrives. The information needs to reach the right person, with a clear next step.',
-    input: 'An incoming enquiry', inputNote: 'Capture the details that matter.',
-    build: 'One shared record', buildNote: 'Connect context, ownership and next steps.',
-    review: 'The team reviews', reviewNote: 'People approve changes and exceptions.',
-    question: 'Who owns the record, and who can change it?', announcement: 'Business systems brief selected.'
-  },
-  ai: {
-    number: '02', title: 'Give repetitive work a hand.',
-    context: 'A recurring question needs a useful answer, grounded in the information your business approves.',
-    input: 'Business information', inputNote: 'Define the sources the assistant can use.',
-    build: 'A suggested response', buildNote: 'Draft an answer with relevant context.',
-    review: 'A person approves', reviewNote: 'Review uncertain answers before sending.',
-    question: 'What can be assisted, and what needs a person?', announcement: 'AI and automation brief selected.'
-  },
-  product: {
-    number: '03', title: 'Make the next step usable.',
-    context: 'A customer has a task to complete. A focused product should make that task clear and manageable.',
-    input: 'A real user task', inputNote: 'Understand who needs to do what.',
-    build: 'A working interface', buildNote: 'Connect the screen to the right workflow.',
-    review: 'People try it out', reviewNote: 'Use feedback to refine the first release.',
-    question: 'What should someone be able to do on day one?', announcement: 'Digital product brief selected.'
-  }
-};
-const briefChoices = document.querySelector('.brief-choices');
-if (briefChoices) {
-briefChoices.hidden = false;
-briefChoices.querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
-  const brief = briefs[button.dataset.brief];
-  if (!brief) return;
-  const fields = {
-    'brief-number': 'number', 'brief-heading': 'title', 'brief-context': 'context',
-    'flow-input': 'input', 'flow-input-note': 'inputNote', 'flow-build': 'build',
-    'flow-build-note': 'buildNote', 'flow-review': 'review', 'flow-review-note': 'reviewNote',
-    'brief-question': 'question'
-  };
-  Object.entries(fields).forEach(([id, field]) => { document.getElementById(id).textContent = brief[field]; });
-  briefChoices.querySelectorAll('button').forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
-  document.querySelector('#brief-update').textContent = brief.announcement;
-}));
-
-}
 const screens = [
   {name: 'Pipeline', file: 'pipeline', title: 'A place for the next step.', description: 'See an enquiry move through the visible sales stages, with its context kept alongside it.', caption: 'Follow an enquiry through the visible sales stages.', alt: 'Resort and Spa CRM demo pipeline, showing fictional enquiries arranged by follow-up stage'},
   {name: 'Enquiries', file: 'inbox', title: 'Keep the conversation in view.', description: 'Inspect a sample enquiry queue with the details a property team might need for a response.', caption: 'Review fictional guest enquiries and the context for a response.', alt: 'Resort and Spa CRM demo enquiry inbox with fictional guest messages and illustrative channel labels'},
