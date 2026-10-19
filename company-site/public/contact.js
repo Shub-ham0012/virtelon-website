@@ -15,7 +15,9 @@ if (form) {
     status.dataset.state = 'loading';
     status.textContent = 'Sending your enquiry. Please keep this page open.';
     try {
-      const payload = Object.fromEntries(new FormData(form));
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData);
+      payload.projectTypes = formData.getAll('projectTypes').join(', ');
       const response = await fetch('/api/contact', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload), signal: AbortSignal.timeout(25000)
@@ -33,7 +35,7 @@ if (form) {
     } finally {
       pending = false;
       button.disabled = false;
-      button.innerHTML = 'Send enquiry <span aria-hidden="true">↗</span>';
+      button.innerHTML = 'Send project brief <span aria-hidden="true">↗</span>';
       status.focus();
     }
   });

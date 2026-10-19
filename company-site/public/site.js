@@ -21,7 +21,7 @@ navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', 
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') closeMenu(true);
 });
-const mobileHeader = matchMedia('(max-width: 650px)');
+const mobileHeader = matchMedia('(max-width: 1100px)');
 mobileHeader.addEventListener('change', () => closeMenu());
 
 const screens = [

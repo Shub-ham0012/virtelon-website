@@ -8,6 +8,10 @@ export function validate(data) {
     const value = data[key] ?? '';
     if (typeof value !== 'string' || value.trim().length < min || value.length > max || /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(value)) return 'Please check your name, email and message lengths.';
   }
+  for (const [key, max] of [['phone', 40], ['industry', 150], ['projectTypes', 300], ['budget', 40], ['timeline', 40], ['existingSite', 500]]) {
+    const value = data[key] ?? '';
+    if (typeof value !== 'string' || value.length > max || /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(value)) return 'Please check the optional project details.';
+  }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || /[\r\n]/.test(data.name + data.email + (data.company || ''))) return 'Please enter a valid name and email.';
   if (!interests.has(data.interest) || data.consent !== 'yes') return 'Choose an enquiry type and agree to using your details to reply.';
   return null;
@@ -56,7 +60,9 @@ export function createHandler({ fetcher = fetch, env = process.env } = {}) {
           access_key: env.WEB3FORMS_ACCESS_KEY,
           subject: 'Virtelon website enquiry', from_name: 'Virtelon website',
           name: data.name.trim(), email: data.email.trim(), replyto: data.email.trim(),
-          company: (data.company || '').trim(), enquiry_type: data.interest,
+          company: (data.company || '').trim(), phone: (data.phone || '').trim(), industry: (data.industry || '').trim(),
+          enquiry_type: data.interest, project_types: (data.projectTypes || '').trim(), budget: (data.budget || '').trim(),
+          timeline: (data.timeline || '').trim(), existing_site: (data.existingSite || '').trim(),
           message: data.message.trim(), consent: 'Permission to respond to this enquiry',
           source: 'Virtelon dark production website', botcheck: false
         })

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 const root=resolve(new URL('../dist/',import.meta.url).pathname);
-const pages=['index','services','products','resort-crm','about','contact','404'];
+const pages=['index','solutions','industries','work','products','resort-crm','about','tools','whatsapp-tool','roi-calculator','contact','404'];
 const titles=new Set();
 for(const page of pages) test(`${page}: metadata, assets, links and fragments`,async()=>{
  const html=await readFile(resolve(root,page+'.html'),'utf8');
@@ -11,7 +11,7 @@ for(const page of pages) test(`${page}: metadata, assets, links and fragments`,a
  assert.equal((html.match(/<h1[\s>]/g)||[]).length,1);
  for(const tag of ['name="description"','rel="canonical"','property="og:title"','property="og:image"','name="twitter:card"','rel="icon"'])assert.ok(html.includes(tag),tag);
  for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
-   const href=match[1]; if(href.startsWith('mailto:')||href.startsWith('http'))continue;
+   const href=match[1]; if(href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('http')||href.startsWith('data:'))continue;
    const url=new URL(href,'https://site.test/'+(page==='index'?'':page));
    const path=url.pathname;const target=path==='/'?'index.html':path.includes('.')?path.slice(1):path.slice(1)+'.html';
    assert.ok((await stat(resolve(root,target))).isFile(),href);

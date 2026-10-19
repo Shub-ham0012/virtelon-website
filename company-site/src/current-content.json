@@ -1,0 +1,450 @@
+{
+  "provenance": {
+    "source": "../index.html and related owner-provided root files",
+    "live": "https://virtelon.com",
+    "imported": "2026-10-19",
+    "note": "Descriptions retained; decorative mock UI and synthetic metrics are not imported."
+  },
+  "solutions": [
+    {
+      "title": "AI & Automation",
+      "headline": "AI that does the work, not just chats.",
+      "description": "We build assistants, agents and automations that plug into your business, read your data and take real actions — booking, replying, updating, escalating — around the clock.",
+      "items": [
+        "AI assistants & agents",
+        "WhatsApp & web chatbots",
+        "Workflow automation",
+        "Document intelligence",
+        "Customer-support automation",
+        "Internal AI tools"
+      ]
+    },
+    {
+      "title": "Business Systems",
+      "headline": "The system your business actually runs on.",
+      "description": "Replace the spreadsheets, WhatsApp groups and manual tracking with software built around how you really work — connected, visual and owned entirely by you.",
+      "items": [
+        "CRM & sales systems",
+        "ERP / MIS",
+        "Analytics dashboards",
+        "Internal operations tools",
+        "Inventory & orders",
+        "Reporting & approvals"
+      ]
+    },
+    {
+      "title": "Digital Products",
+      "headline": "Products people love to use.",
+      "description": "Premium websites, web and mobile apps, e-commerce and startup MVPs — engineered for speed, conversion and scale, with design that makes you look like the leader in your space.",
+      "items": [
+        "Premium websites",
+        "Web applications",
+        "Mobile apps (iOS/Android)",
+        "E-commerce",
+        "Startup MVPs",
+        "Design & UX"
+      ]
+    }
+  ],
+  "industries": [
+    {
+      "title": "Salons & Wellness",
+      "description": "Missed bookings, no-shows and no online presence to match a premium in-store experience.",
+      "items": [
+        "Conversion-first booking websites",
+        "AI receptionist on WhatsApp & web",
+        "Automated reminders & rebooking"
+      ],
+      "group": "Local businesses"
+    },
+    {
+      "title": "Restaurants & Cafés",
+      "description": "Orders and reservations scattered across calls and DMs; no way to build a repeat audience.",
+      "items": [
+        "Order & reservation experiences",
+        "WhatsApp-first ordering",
+        "Menu & brand-led websites"
+      ],
+      "group": "Local businesses"
+    },
+    {
+      "title": "Gyms & Fitness",
+      "description": "Leads leak away and memberships lapse with no system to capture or retain them.",
+      "items": [
+        "Membership & lead systems",
+        "Class booking & check-in",
+        "Retention & renewal automation"
+      ],
+      "group": "Local businesses"
+    },
+    {
+      "title": "Clinics & Healthcare",
+      "description": "Appointments, records and patient follow-up handled on paper and phone calls.",
+      "items": [
+        "Appointment & records systems",
+        "Patient communication",
+        "Practice dashboards"
+      ],
+      "group": "Local businesses"
+    },
+    {
+      "title": "Coaching & Education",
+      "description": "Admissions enquiries lost, and fees, batches & attendance tracked in registers.",
+      "items": [
+        "Admissions & enquiry CRM",
+        "Fee, batch & attendance platforms",
+        "Parent & student portals"
+      ],
+      "group": "Local businesses"
+    },
+    {
+      "title": "Startups & SMBs",
+      "description": "An idea that needs to become a real product, or operations that have outgrown spreadsheets.",
+      "items": [
+        "Startup MVPs",
+        "Custom internal software",
+        "Dashboards & automation"
+      ],
+      "group": "Local businesses"
+    },
+    {
+      "title": "Manufacturing (SME)",
+      "description": "Production scheduling by memory, stock reconciled against Tally by hand — no one on the shop floor and no one at the top has the same picture.",
+      "items": [
+        "Production, inventory & dispatch tracker",
+        "Owner dashboard synced to your Tally",
+        "WhatsApp alerts on stock & order status"
+      ],
+      "group": "Growing businesses & operations"
+    },
+    {
+      "title": "Retail & D2C",
+      "description": "Shopify runs the storefront — but stock, orders and channels still get reconciled by hand across spreadsheets.",
+      "items": [
+        "Unified order & stock dashboard",
+        "Shopify & marketplace integrations",
+        "Low-stock WhatsApp alerts"
+      ],
+      "group": "Growing businesses & operations"
+    },
+    {
+      "title": "Recruitment & Staffing",
+      "description": "Candidates tracked across six WhatsApp chats and a spreadsheet, with no shared pipeline view for your team or your client.",
+      "items": [
+        "Candidate pipeline + client CRM",
+        "WhatsApp status-update automation",
+        "Client-facing shortlist portal"
+      ],
+      "group": "Growing businesses & operations"
+    },
+    {
+      "title": "Automotive Service & Workshops",
+      "description": "Paper job cards, no service-history recall, and no reminder when a customer's next service is due.",
+      "items": [
+        "Digital job cards & vehicle history",
+        "WhatsApp service-due reminders",
+        "Owner revenue dashboard"
+      ],
+      "group": "Growing businesses & operations"
+    },
+    {
+      "title": "Professional Services (CA & Law Firms)",
+      "description": "Statutory deadlines tracked in someone's head, client communication scattered across email, calls and WhatsApp.",
+      "items": [
+        "Client & matter CRM",
+        "Deadline calendar with auto-reminders",
+        "Partner-facing billing dashboard"
+      ],
+      "group": "Growing businesses & operations"
+    }
+  ],
+  "work": [
+    {
+      "title": "MakeoverU — luxury salon presence",
+      "category": "Beauty & Wellness — Muzaffarpur, India",
+      "blocks": [
+        {
+          "label": "Problem",
+          "text": "A premium salon with no digital presence to match its in-store experience, and no easy way for clients to book."
+        },
+        {
+          "label": "What we built",
+          "text": "A conversion-first, mobile-first site in a refined white & rose-gold identity, with WhatsApp-led booking front and centre."
+        }
+      ],
+      "stack": "Next.js Responsive WhatsApp CTA SEO",
+      "status": "Live client build"
+    },
+    {
+      "title": "Comfort Zone — AC service booking",
+      "category": "Home Services — Muzaffarpur, India",
+      "blocks": [
+        {
+          "label": "Problem",
+          "text": "A local AC repair business running on word-of-mouth, invisible to customers searching online."
+        },
+        {
+          "label": "What we built",
+          "text": "A fast, premium single-page service site inspired by modern on-demand brands, with clear service tiles and instant call/WhatsApp booking."
+        }
+      ],
+      "stack": "HTML/CSS/JS Single-file Click-to-book Local SEO",
+      "status": "Live client build"
+    },
+    {
+      "title": "Milky Island — dessert café",
+      "category": "Food & Beverage — India",
+      "blocks": [
+        {
+          "label": "Problem",
+          "text": "A dessert café that needed a website as memorable as its product, to stand out in a crowded local F&B scene."
+        },
+        {
+          "label": "What we built",
+          "text": "Two directions — an award-style scroll-driven experience and a clean premium version — so the owner could choose their ambition level."
+        }
+      ],
+      "stack": "Scroll storytelling Motion Mobile-first Brand UI",
+      "status": "Live client build"
+    },
+    {
+      "title": "Development centre — programs & enrolment",
+      "category": "Therapy & Child Development Centres — India",
+      "blocks": [
+        {
+          "label": "Problem",
+          "text": "A children's therapy and development centre had no way for parents to learn about its programs or start enrolment online — everything ran through phone calls and word of mouth."
+        },
+        {
+          "label": "What we built",
+          "text": "A clear, parent-friendly site explaining every program and the team behind it, with a simple enquiry path straight into WhatsApp so a call gets booked without back-and-forth."
+        }
+      ],
+      "stack": "Website WhatsApp enquiry Program pages Local SEO",
+      "status": "Delivered client build"
+    },
+    {
+      "title": "Wholesale fashion brand — storefront & ongoing ads",
+      "category": "B2B Wholesale & Retail — India",
+      "blocks": [
+        {
+          "label": "Problem",
+          "text": "A wholesale fashion brand needed a proper B2B storefront — and someone to actually run paid customer acquisition month over month, not just a one-time build."
+        },
+        {
+          "label": "What we built",
+          "text": "A Shopify B2B storefront plus an ongoing monthly retainer managing paid ads and growth — the build-then-run relationship we prefer over one-off projects."
+        }
+      ],
+      "stack": "Shopify B2B storefront Paid ads Monthly retainer",
+      "status": "Delivered client build"
+    }
+  ],
+  "offers": [
+    {
+      "title": "Business Website",
+      "category": "Entry",
+      "description": "For local businesses that need a premium presence & more enquiries.",
+      "items": [
+        "Conversion-first design",
+        "Mobile-first & fast",
+        "WhatsApp lead capture",
+        "Basic SEO"
+      ],
+      "timeline": "Timeline: ~1–2 weeks Starting from · on request",
+      "group": "Productized starting points"
+    },
+    {
+      "title": "AI Assistant / Chatbot",
+      "category": "Mid-ticket",
+      "description": "For teams drowning in repetitive enquiries & bookings.",
+      "items": [
+        "Trained on your business",
+        "WhatsApp + web",
+        "Books & qualifies leads",
+        "CRM / calendar sync"
+      ],
+      "timeline": "Timeline: ~2–4 weeks Starting from · on request",
+      "group": "Productized starting points"
+    },
+    {
+      "title": "CRM · Dashboard · MVP",
+      "category": "High-ticket",
+      "description": "For businesses replacing spreadsheets or launching a product.",
+      "items": [
+        "Custom to your workflow",
+        "Roles & permissions",
+        "Analytics & reporting",
+        "You own the code"
+      ],
+      "timeline": "Timeline: ~4–8 weeks Starting from · on request",
+      "group": "Productized starting points"
+    },
+    {
+      "title": "ERP / Custom Software",
+      "category": "Enterprise",
+      "description": "For complex operations needing bespoke, integrated systems.",
+      "items": [
+        "Full custom architecture",
+        "Integrations & APIs",
+        "AI where it adds value",
+        "Ongoing partnership"
+      ],
+      "timeline": "Timeline: scoped per project Custom quotation",
+      "group": "Productized starting points"
+    },
+    {
+      "title": "AI WhatsApp Lead & Booking Agent",
+      "category": "Local Business",
+      "description": "For salons, restaurants, gyms & clinics losing leads to unanswered calls and DMs.",
+      "items": [
+        "Answers & qualifies enquiries",
+        "Books straight into your calendar",
+        "Live 24/7, hands off when needed",
+        "WhatsApp-native"
+      ],
+      "timeline": "Typical build: 2–3 weeks Starting from · on request",
+      "group": "Ready-to-quote offers"
+    },
+    {
+      "title": "Custom CRM for Coaching Institutes",
+      "category": "Local Business",
+      "description": "For UPSC/JEE/NEET-style institutes losing admissions to un-followed-up enquiries.",
+      "items": [
+        "WhatsApp & call enquiry capture",
+        "Counsellor task assignment",
+        "Follow-up sequencing",
+        "Conversion dashboard"
+      ],
+      "timeline": "Typical build: 3–5 weeks Starting from · on request",
+      "group": "Ready-to-quote offers"
+    },
+    {
+      "title": "Manufacturing Production & Inventory Tracker",
+      "category": "Growing Business",
+      "description": "For owner-run manufacturing SMEs still reconciling Tally against Excel every week.",
+      "items": [
+        "Order intake → production log → dispatch",
+        "Live inventory & reorder alerts",
+        "Owner single-screen dashboard",
+        "Synced to your existing Tally"
+      ],
+      "timeline": "Typical build: 6–10 weeks Starting from · on request",
+      "group": "Ready-to-quote offers"
+    },
+    {
+      "title": "D2C Shopify Ops Dashboard",
+      "category": "Growing Business",
+      "description": "For Shopify-based brands reconciling orders & stock across channels by hand.",
+      "items": [
+        "Unified order & stock view",
+        "Low-stock WhatsApp alerts",
+        "Channel-level sales reporting",
+        "Extends Shopify, doesn't replace it"
+      ],
+      "timeline": "Typical build: 3–5 weeks Starting from · on request",
+      "group": "Ready-to-quote offers"
+    },
+    {
+      "title": "Recruiter's Command Center",
+      "category": "Growing Business",
+      "description": "For staffing agencies running their pipeline across WhatsApp chats and spreadsheets.",
+      "items": [
+        "Candidate pipeline + client CRM",
+        "WhatsApp status automation",
+        "Client-facing shortlist portal",
+        "You own it — no per-seat fees"
+      ],
+      "timeline": "Typical build: 4–6 weeks Starting from · on request",
+      "group": "Ready-to-quote offers"
+    },
+    {
+      "title": "Client & Deadline CRM for CA / Law Firms",
+      "category": "Growing Business",
+      "description": "For firms tracking statutory deadlines and client work in someone's head.",
+      "items": [
+        "Client & matter pipeline",
+        "Deadline calendar with auto-reminders",
+        "Billing & time tracking",
+        "Document repository"
+      ],
+      "timeline": "Typical build: 5–8 weeks Starting from · on request",
+      "group": "Ready-to-quote offers"
+    }
+  ],
+  "about": {
+    "intro": "Virtelon is a small, senior software & AI studio out of India, building for clients worldwide. No account-manager layer, no offshore black box — you work directly with the people writing your code.",
+    "story": [
+      "We started Virtelon because too much software is over-promised, over-priced and under-delivered.",
+      "We're a founder-led team that would rather build a handful of things properly than churn out templates. The same people who scope your project design it, build it and ship it — so nothing gets lost in translation.",
+      "Our ambition is to grow Virtelon into a serious technology company — but the way we work stays the same: direct, honest, and obsessed with what actually ships."
+    ],
+    "facts": [
+      {
+        "label": "Company",
+        "value": "Virtelon Pvt. Ltd."
+      },
+      {
+        "label": "Founded",
+        "value": "2025 · Registered in India"
+      },
+      {
+        "label": "Team",
+        "value": "Small senior core team"
+      },
+      {
+        "label": "Works with",
+        "value": "India · US · UK · UAE · Global"
+      },
+      {
+        "label": "Model",
+        "value": "Remote-first, founder-led"
+      },
+      {
+        "label": "You own",
+        "value": "Your code & your data"
+      }
+    ],
+    "team": [
+      {
+        "name": "Shubham Raj",
+        "role": "Founder",
+        "bio": "Technical lead and the person you'll actually talk to on a discovery call. Owns architecture, development and final QA on everything Virtelon ships.",
+        "photo": "/team/shubham.jpg",
+        "linkedin": "https://www.linkedin.com/in/shubhamraj06"
+      },
+      {
+        "name": "Sanskar Mishra",
+        "role": "Co-Founder",
+        "bio": "Runs delivery end-to-end — contracts, project tracking and client communication — so a project stays on schedule after the scoping call ends.",
+        "photo": "/team/sanskar.jpg",
+        "linkedin": "https://www.linkedin.com/in/nyctoxsan/"
+      },
+      {
+        "name": "Vijayant Priyadarshi",
+        "role": "Core Team",
+        "bio": "Owns outreach and the pipeline — finding the right businesses to work with and keeping every conversation moving.",
+        "photo": "/team/vijayant.jpg",
+        "linkedin": "https://www.linkedin.com/in/vijayantpriyadarshi/"
+      }
+    ],
+    "principles": [
+      {
+        "title": "Outcome-first",
+        "description": "We build to solve a business problem — more bookings, less manual work, better decisions — not to bill hours."
+      },
+      {
+        "title": "Full-range capability",
+        "description": "The same team ships your website today and your AI-powered internal system next quarter. One partner, not five vendors."
+      },
+      {
+        "title": "Your data, your code",
+        "description": "You own the codebase and the data. No lock-in, no mystery, clean handover whenever you want it."
+      },
+      {
+        "title": "Direct & fast",
+        "description": "Message a founder on WhatsApp and get a real answer. Decisions in hours, not procurement cycles."
+      }
+    ]
+  }
+}
