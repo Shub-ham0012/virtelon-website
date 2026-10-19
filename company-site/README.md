@@ -1,10 +1,12 @@
 # Virtelon dark production candidate
 
-Six-page company site based on the approved dark V8 direction. This folder is independent of the repository's original website. The original root files, project settings and production deployment remain intact. The existing Git integration can automatically build previews when a branch is pushed; no preview is promoted to that project's production aliases.
+Six-page company candidate governed by `brand/BRAND_SYSTEM.md` in the parent workspace. The October 19 pass replaces the earlier V8 cobalt/Bricolage direction with Ink, Warm Ivory, Signal Amber, Manrope, Instrument Serif and IBM Plex Mono. This folder is independent of the repository's original website. The existing Git integration can automatically build previews when a branch is pushed; no preview should be promoted to that project's production aliases.
 
 ## Stack and editing
 
-Node 24 builds plain HTML pages with a shared header, footer, metadata and helpers in `build.mjs`. The approved homepage content is retained in `src/home.html`; shared V8 tokens live in `public/styles.css`, with secondary-page layout in `public/pages.css`. Small vanilla JavaScript progressively enhances the mobile menu, illustrative briefs, real demo-image viewer and form. No browser framework, client routing, analytics or database is needed for this site.
+Node 24 builds plain HTML pages with a shared header, footer, metadata and helpers in `build.mjs`. Homepage content lives in `src/home.html`; base layouts live in `public/styles.css` and `public/pages.css`, with the canonical brand and new editorial composition in `public/brand.css`. Small vanilla JavaScript enhances the mobile menu, real demo-image viewer, form and homepage opening. No browser framework, client routing, analytics or database is needed.
+
+The opening uses `motion-timeline.js` (deterministic state model) and `intro.js` (small Canvas 2D renderer). Its 5.2-second arc is signal → scattered → connected → identity → moving → settled. Skip, Escape and keyboard entry reveal the content; a session marker prevents automatic repeats. Reduced motion stays static, and hidden/offscreen work pauses. No video, particle library or loading percentage is used. See `qa/MOTION-2026-10-19.md` for current evidence and remaining release checks; earlier QA records describe the previous design, not this pass.
 
 ```sh
 cd company-site
