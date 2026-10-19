@@ -63,7 +63,10 @@
     hero.style.setProperty('--reveal','0');skip.hidden=false;replay.hidden=true;measure();render(motion.sample(0));remember();resume();
   }
   skip.addEventListener('click',()=>finish(true));
-  replay.addEventListener('click',()=>{start();skip.focus({preventScroll:true});});
+  replay.addEventListener('click',()=>{
+    window.scrollTo({top:0,left:0,behavior:'instant'});
+    start();skip.focus({preventScroll:true});
+  });
   document.addEventListener('keydown',event=>{if(!done&&event.key==='Escape')finish(document.activeElement===skip);});
   hero.addEventListener('focusin',event=>{if(!done&&event.target.closest('.hero-message'))finish();});
   hero.addEventListener('pointermove',event=>{if(!done&&geometry&&event.pointerType!=='touch'){pointerX=motion.clamp((event.clientX-geometry.left)/geometry.width)*2-1;pointerY=motion.clamp((event.clientY-geometry.top)/geometry.height)*2-1;}},{passive:true});
