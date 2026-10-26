@@ -6,6 +6,10 @@
 
 RewriteEngine On
 
+# Collapse the duplicate index.html URL into the canonical homepage.
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+RewriteRule ^index\.html$ https://virtelon.com/ [L,R=301]
+
 # Force HTTPS (Hostinger issues a free SSL certificate for the domain —
 # make sure it's active in hPanel > SSL before relying on this rule).
 RewriteCond %{HTTPS} off
@@ -28,8 +32,16 @@ RewriteRule ^(solutions|industries|work|products|company|start)/?$ /index.html [
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/manifest+json "access plus 1 week"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 
 # Don't let visitors browse folder contents (e.g. /team/).

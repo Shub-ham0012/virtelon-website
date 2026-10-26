@@ -1,0 +1,12 @@
+{
+  "name": "virtelon-dark-production",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "24.x" },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && node dev.mjs",
+    "test": "node --test test/*.test.mjs"
+  }
+}
