@@ -150,6 +150,8 @@ for (const f of fs.readdirSync(path.join(ROOT, 'team'))) if (tpl.includes('/team
 for (const f of ['logo.png', 'site.webmanifest']) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 fs.copyFileSync(path.join(ROOT, 'scripts/hostinger.htaccess'), path.join(OUT, '.htaccess'));
 fs.copyFileSync(path.join(ROOT, 'llms.txt'), path.join(OUT, 'llms.txt'));
+// Google Search Console ownership file (URL-prefix property https://virtelon.com/) — must stay published.
+fs.writeFileSync(path.join(OUT, 'google4fbb1a80e54bfb19.html'), 'google-site-verification: google4fbb1a80e54bfb19.html');
 const prio = { '/': '1.0', '/solutions': '0.9', '/industries': '0.9', '/products': '0.9', '/work': '0.8', '/start': '0.8', '/company': '0.7', '/tools': '0.6', '/whatsapp-tool': '0.6', '/roi-calculator': '0.6' };
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(r => `  <url><loc>${ORIGIN}${r}</loc><lastmod>${BUILD_DATE}</lastmod><priority>${prio[r]}</priority></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
