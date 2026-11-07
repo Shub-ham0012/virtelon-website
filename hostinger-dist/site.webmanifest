@@ -1,0 +1,17 @@
+{
+  "name": "Virtelon",
+  "short_name": "Virtelon",
+  "description": "Custom software, CRM, AI automation and business systems.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#181919",
+  "theme_color": "#181919",
+  "icons": [
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

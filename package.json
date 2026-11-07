@@ -1,10 +1,12 @@
 {
   "name": "virtelon-website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "Virtelon Private Limited — marketing website (static HTML/CSS/JS) + serverless contact-form API.",
+  "description": "Virtelon Private Limited — marketing website. Static pages pre-rendered for Hostinger.",
   "scripts": {
-    "dev": "echo \"Static site — open index.html, or run: npx vercel dev\""
+    "build": "node scripts/build-hostinger.mjs",
+    "preview": "node scripts/build-hostinger.mjs && node scripts/serve-dist.mjs hostinger-dist 4310",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "nodemailer": "^6.9.15"

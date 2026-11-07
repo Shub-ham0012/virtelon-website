@@ -1,3 +1,8 @@
 .DS_Store
 node_modules/
 *.log
+.env*
+_deploy/
+_to_delete/
+*.zip
+*.tgz

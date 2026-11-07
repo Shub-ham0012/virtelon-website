@@ -1,0 +1,15 @@
+# Virtelon
+
+> Virtelon Private Limited (CIN U63122BR2025PTC073368) is an Indian software and AI company founded in 2025. It designs and builds custom CRM systems, business dashboards, AI automation and websites for local and growing businesses, with a current focus on hospitality, wedding venues and operations-heavy companies.
+
+Contact: contact@virtelon.com · +91 92202 45244 · https://wa.me/919220245244
+
+## Pages
+- [Home](https://virtelon.com/): what Virtelon builds and for whom
+- [Solutions](https://virtelon.com/solutions): AI automation, business systems (CRM, ERP dashboards) and digital products
+- [Industries](https://virtelon.com/industries): industries Virtelon builds for
+- [Products](https://virtelon.com/products): ready-to-build CRM and business software offers
+- [Work](https://virtelon.com/work): portfolio of working product systems and demos (demos are labelled)
+- [Company](https://virtelon.com/company): founders and team
+- [Start a Project](https://virtelon.com/start): project enquiry
+- [Free Tools](https://virtelon.com/tools): WhatsApp link & QR generator, missed-lead cost calculator

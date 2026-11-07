@@ -1,0 +1,46 @@
+# Virtelon — Hostinger (Apache/LiteSpeed). Generated alongside hostinger-dist/ by scripts/build-hostinger.mjs.
+# Every public route is a real pre-rendered HTML file. No SPA fallback: unknown URLs return a real 404.
+ErrorDocument 404 /404.html
+Options -Indexes -MultiViews
+DirectorySlash Off
+RewriteEngine On
+
+# 1) Legacy *.html and trailing-slash URLs -> one-hop 301 to the clean https://virtelon.com URL
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://virtelon.com/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+(solutions|industries|products|work|company|start|tools|whatsapp-tool|roi-calculator)\.html[\s?] [NC]
+RewriteRule ^([a-z-]+)\.html$ https://virtelon.com/$1 [L,R=301,NC]
+RewriteRule ^(solutions|industries|products|work|company|start|tools|whatsapp-tool|roi-calculator)/+$ https://virtelon.com/$1 [L,R=301,NC]
+
+# 2) HTTPS + non-www in a single hop
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://virtelon.com%{REQUEST_URI} [L,R=301,NE]
+
+# 3) Clean URL -> pre-rendered file (internal, URL bar keeps the clean path)
+RewriteRule ^(solutions|industries|products|work|company|start|tools|whatsapp-tool|roi-calculator)$ /$1.html [L,NC]
+
+# Never expose the generated 404 or route manifest as indexable pages
+<FilesMatch "^(404\.html|routes\.json)$">
+  Header set X-Robots-Tag "noindex"
+</FilesMatch>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  <FilesMatch "\.(woff2|webp|png|jpe?g)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+</IfModule>
