@@ -87,3 +87,11 @@ Organization (legal name, CIN-consistent name, logo, founders, contact, Instagra
 3. **Domain expiry**: hPanel showed virtelon.com expiring **2026-11-25**. Renew before anything else.
 4. **Search Console / GA4 / Bing**: user login required (section 5).
 5. Facts to confirm: LinkedIn company URL; approved photo/LinkedIn for Navneet Jha.
+
+## 8. Production deployment record — 2026-11-07
+- Host: Hostinger, `domains/virtelon.com/public_html` (File Browser).
+- Backup before deploy: `~/backups/public_html_2026-11-07_pre-seo/` (full copy of the previous public_html, outside the web root). Restore = copy its contents back into public_html.
+- Deployed from commit `c1afb51` (`hostinger-dist/`): `.htaccess`, `404.html`, `index.html`, `solutions.html`, `industries.html`, `products.html`, `work.html`, `company.html`, `start.html`, `tools.html`, `whatsapp-tool.html`, `roi-calculator.html`, `sitemap.xml`, `robots.txt`, `llms.txt`. `assets/`, `team/shubham.jpg`, `team/vijayant.jpg`, `logo.png`, `site.webmanifest` were already identical on the server.
+- Left untouched (pre-existing, not deleted): `vercel.json`, `virtelon-hostinger-final.zip`, `team/sanskar.jpg` in public_html. They are not linked from the site but are publicly reachable by direct URL; delete them in hPanel when convenient.
+- Live verification (https://virtelon.com, raw HTML): 10/10 sitemap URLs 200 with self-canonical, unique title/description, one H1, valid JSON-LD; 25 internal links/assets 200; `/index.html`, `/tools.html`, `/solutions.html`, `/solutions/`, `/whatsapp-tool.html` 301 to clean URLs; unknown URLs 404; team section shows Shubham Raj, Vijayant Priyadershi, Navneet Jha, no Sanskar anywhere; no console errors; no horizontal overflow at 1440 and 390 px; contact form markup, Web3Forms endpoint and honeypot present (no live test submission sent).
+- PageSpeed Insights (live, mobile): `/` 100/100/100/100 (LCP 1.1 s, TBT 0 ms, CLS 0); `/company` 99/100/100/100.
